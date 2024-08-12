@@ -51,6 +51,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools-v127 -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-devtools-v127</artifactId>
+            <version>4.23.0</version>
+        </dependency>
+
+
     </dependencies>
     <build>
         <plugins>
