@@ -20,8 +20,6 @@ public class BasePage {
     private final int shotTimeOut = GlobalVariables.SORT_TIMEOUT;
     private final int longTimeOut = GlobalVariables.LONG_TIMEOUT;
 
-    static Actions action = new Actions(DriverManager.getDriver());
-    static JavascriptExecutor jsExecutor = (JavascriptExecutor) DriverManager.getDriver();
 
     protected By getByDynamicXpath(String locator, String... value) {
         if (locator.startsWith("xpath=") || locator.startsWith("Xpath=") || locator.startsWith("XPATH=")) {
@@ -163,10 +161,12 @@ public class BasePage {
     }
 
     protected void hoverMouseToElement(String locator) {
+        Actions action = new Actions(DriverManager.getDriver());
         action.moveToElement(getWebElement(locator));
     }
 
     protected void hoverMouseToElement(String locator, String... dynamicValues) {
+        Actions action = new Actions(DriverManager.getDriver());
         action.moveToElement(getWebElement(locator, dynamicValues));
     }
 
@@ -195,14 +195,17 @@ public class BasePage {
     }
 
     protected void pressKeyToElement(String locator, String value) {
+        Actions action = new Actions(DriverManager.getDriver());
         action.sendKeys(getWebElement(locator), value).perform();
     }
 
     protected void scrollToBottomPage() {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) DriverManager.getDriver();
         jsExecutor.executeScript("window.scrollTo(0,document.body.scrollHeight)");
     }
 
     protected void clickToElementByJS(String locator) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) DriverManager.getDriver();
         jsExecutor.executeScript("arguments[0].click();", getWebElement(locator));
     }
 

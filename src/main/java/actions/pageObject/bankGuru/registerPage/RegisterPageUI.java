@@ -18,6 +18,6 @@ public class RegisterPageUI {
     public WebElement submitButton;
 
     //User ID :  , Password :
-    public String textboxInTable = "Xpath=//tr//td[text()='%s']/following-sibling::td";
+    public static final String TEXTBOX_IN_TABLE = "Xpath=//tr//td[text()='%s']/following-sibling::td";
 
 }

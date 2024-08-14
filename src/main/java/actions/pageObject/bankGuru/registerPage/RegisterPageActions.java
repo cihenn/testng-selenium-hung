@@ -17,7 +17,7 @@ public class RegisterPageActions extends BasePage {
     }
 
     public String getUserInformation(String value){
-        return getWebElement(registerPageUI.textboxInTable,value).getText();
+        return getWebElement(registerPageUI.TEXTBOX_IN_TABLE,value).getText();
     }
 
     public void scrollToPageFooter(){

@@ -9,11 +9,15 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
+
 public class Register extends BaseTest {
-    WebDriver driver;
+
     RegisterPageActions registerPageActions;
     String userName;
     String password;
+
 
     @BeforeClass
     public void beforeClass() {
@@ -23,6 +27,7 @@ public class Register extends BaseTest {
 
     @Test
     public void Create_new_account() throws InterruptedException {
+
         registerPageActions.inputToEmailTextBox("doanvanhungcntt@gmail.com");
         registerPageActions.clickSubmitButton();
         Thread.sleep(1000);
@@ -31,7 +36,6 @@ public class Register extends BaseTest {
         System.out.println("user name is: " + userName + " and password is: " + password);
 
         registerPageActions.scrollToPageFooter();
-        Thread.sleep(5000);
     }
 
     @AfterClass
