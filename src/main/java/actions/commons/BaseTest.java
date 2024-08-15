@@ -9,11 +9,26 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.annotations.BeforeSuite;
 
+import java.io.File;
 import java.time.Duration;
 
 public class BaseTest {
     // Start browser
-    protected final Logger log = LogManager.getLogger(getClass());
+    public static final Logger log = LogManager.getLogger(BaseTest.class);
+
+    @BeforeSuite
+    public void deleteAllFileInAllureResult(){
+        log.info("delete file ne");
+        File filesList[] = new File(GlobalVariables.PROJECT_DIR+ File.separator +"allure-results").listFiles();
+        if (filesList.length != 0) {
+            for (int i = 0; i < filesList.length; i++) {
+                if (filesList[i].isFile() && !filesList[i].getName().equals("environment.properties")) {
+                    new File(filesList[i].toString()).delete();
+                }
+            }
+        }
+    }
 
 }

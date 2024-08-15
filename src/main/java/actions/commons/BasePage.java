@@ -2,6 +2,8 @@ package actions.commons;
 
 import actions.pageObject.bankGuru.commonPage.CommonPage;
 import actions.pageObject.bankGuru.commonPage.CommonUI;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -20,9 +22,11 @@ public class BasePage {
     private final int shotTimeOut = GlobalVariables.SORT_TIMEOUT;
     private final int longTimeOut = GlobalVariables.LONG_TIMEOUT;
 
+    protected Logger log = LogManager.getLogger(getClass());
 
     protected By getByDynamicXpath(String locator, String... value) {
         if (locator.startsWith("xpath=") || locator.startsWith("Xpath=") || locator.startsWith("XPATH=")) {
+            log.info("Dynamic xpath is: " +String.format(locator.substring(6), (Object[]) value));
             return By.xpath(String.format(locator.substring(6), (Object[]) value));
         } else {
             throw new RuntimeException("not valid Xpath String");

@@ -7,4 +7,6 @@ public class GlobalVariables {
     public static final String BANK_GURU_LOGIN = "https://demo.guru99.com/v4";
     public static final String UPLOAD_FILE_FOLDER = "";
     public static final String DOWNLOAD_FILE_FOLDER = "";
+
+    public static final String PROJECT_DIR= System.getProperty("user.dir");
 }

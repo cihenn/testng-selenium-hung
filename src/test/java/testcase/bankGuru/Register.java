@@ -33,7 +33,7 @@ public class Register extends BaseTest {
         Thread.sleep(1000);
         userName = registerPageActions.getUserInformation("User ID :");
         password = registerPageActions.getUserInformation("Password :");
-        System.out.println("user name is: " + userName + " and password is: " + password);
+        log.info("user name is: " + userName + " and password is: " + password);
 
         registerPageActions.scrollToPageFooter();
     }

@@ -16,7 +16,6 @@
                      filePattern="./logs/%d{MM-dd-yyyy-HH-mm-ss}_BankGuru-%i.log.gz">
             <PatternLayout pattern="${pattern}"/>
             <Policies>
-                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
                 <SizeBasedTriggeringPolicy size="10MB"/>
             </Policies>
             <DefaultRolloverStrategy max="10"/>
@@ -25,19 +24,23 @@
     </Appenders>
 
     <Loggers>
-<!--        <Logger name="testcase.bankGuru" level="INFO">-->
-<!--            <AppenderRef ref="Console"/>-->
-<!--            <AppenderRef ref="LogFile"/>-->
-<!--            <AppenderRef ref="RollingFile"/>-->
-<!--        </Logger>-->
-
-<!--        <Logger name="actions" level="INFO">-->
-
-
-        <Root level="WARN">
+        <Logger name="testcase.bankGuru" level="INFO">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="LogFile"/>
             <AppenderRef ref="RollingFile"/>
+        </Logger>
+
+        <Logger name="actions" level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="LogFile"/>
+            <AppenderRef ref="RollingFile"/>
+        </Logger>
+
+
+        <Root level="WARN">
+<!--            <AppenderRef ref="Console"/>-->
+<!--            <AppenderRef ref="LogFile"/>-->
+<!--            <AppenderRef ref="RollingFile"/>-->
 
         </Root>
     </Loggers>
